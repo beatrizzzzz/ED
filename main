@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "listaseq.h"
+
+#define TRUE 1
+#define FALSE 0
+
+int main()
+{
+    tLista myList;
+    int i, dado;
+
+    cria(&myList);
+
+    if (vazia(myList) == FALSE){
+        printf("Lista criada nao estava vazia!\n");
+    }
+    else{
+        printf("Lista vazia\n");
+    }
+
+    inserir(&myList, 1, 22);
+    inserir(&myList, 2, 33);
+    inserir(&myList, 3, 55);
+    inserir(&myList, 4, 77);
+
+    inserir(&myList, 3, 44);
+    inserir(&myList, 5, 66);
+
+    inserir(&myList, 1, 00);
+
+    printf("\nAntes da remocão \n");
+    for (i = 1; i <= tamanho(myList); i++){
+        obtervalor(myList, i, &dado);
+        printf("%dº elemento da lista = %d\n",
+               i, dado);
+    }
+
+
+    remover(&myList, 5, &dado);
+    printf("\nFoi removido = %d \n\n", dado);
+
+    printf("Depois da remocao \n");
+    for (i = 1; i <= tamanho(myList); i++){
+        obtervalor(myList, i, &dado);
+        printf("%dº elemento da lista = %d\n",
+               i, dado);
+    }
+
+
+    remover(&myList, 1, &dado);
+    printf("\nFoi removido = %d \n\n", dado);
+
+    printf("Depois da remocao \n");
+    for (i = 1; i <= tamanho(myList); i++){
+        obtervalor(myList, i, &dado);
+        printf("%dº elemento da lista = %d\n",
+               i, dado);
+    }
+    
+    return 0;
+}
